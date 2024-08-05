@@ -41,6 +41,7 @@ public class LoginpageController extends HttpServlet {
 				session.setAttribute("bean", bean);
 				response.sendRedirect("home.jsp");
 			}
+			
 			else {
 				session.setAttribute("failed","invalid credentials");
 				response.sendRedirect("login.jsp");
