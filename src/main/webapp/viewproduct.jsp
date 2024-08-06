@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.website.bean.LoginBean"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
 <% 
 	if(session.getAttribute("bean")== null){
 	response.sendRedirect("login.jsp");
@@ -37,6 +39,43 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+  .intro {
+  height: 100%;
+}
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+ thead th {
+  color: blue;
+}
+
+.card {
+  border-radius: .5rem;
+}
+
+.table-scroll {
+  border-radius: .5rem;
+}
+
+.table-scroll table thead th {
+  font-size: 1.25rem;
+}
+thead {
+  top: 0;
+  position: sticky;
+  
+}
+#tablehead{
+ background-color:red;
+}
+  
+  </style>
 
   
 </head>
@@ -48,7 +87,7 @@
 
       <a href="home.jsp" class="logo d-flex align-items-center me-auto">
         <img src="assets/img/logo.png" alt="">
-        <h1 class="sitename">QuickStart</h1>
+        <h1 class="sitename">FoodCafe</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -73,6 +112,57 @@
   <main class="main">
 
     <!-- Hero Section -->
+    <section class="intro mt-5">
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                  <table class="table table-striped mb-0">
+                    <thead id="tablehead">
+                      <tr>
+                        <th scope="col">Product ID</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Categories</th>
+                        <th scope="col">Product Price</th>
+                        <c:if test="${bean.user_type == 'admin'}">
+                        <th scope="col">Options</th>
+                        </c:if>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <sql:query var="products" dataSource="jdbc/login">
+                    	select * from items
+                    </sql:query>
+                    <c:forEach items="${products.rows}" var="product">
+                    	<tr>
+                        	<td>${product.product_id}</td>
+                        	<td>${product.product_name}</td>
+                        	<td>${product.product_categeries}</td>
+                        	<td>${product.product_price}</td>
+                        	<c:if test="${bean.user_type == 'admin'}">
+                        			<td>
+                        				<button class="btn btn-primary">Edit</button>
+                        				<button class="btn btn-danger">Delete</button>
+                        			</td>
+                        	</c:if>
+                      </tr>
+                    </c:forEach>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
   </main>
  -->
   <!-- Scroll Top -->
