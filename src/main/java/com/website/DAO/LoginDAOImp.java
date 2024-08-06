@@ -33,6 +33,7 @@ public class LoginDAOImp implements LoginDAO {
 			bean.setUser_password(rs.getString("user_password"));
 			bean.setPhone(rs.getString("phone"));
 			bean.setAddress(rs.getString("address"));
+			bean.setUser_type(rs.getString("user_type"));
 			return bean;
 		}
 		return null;

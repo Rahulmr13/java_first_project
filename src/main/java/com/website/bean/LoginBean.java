@@ -12,5 +12,6 @@ public class LoginBean implements Serializable {
 	private String user_password;
 	private String phone;
 	private String address;
+	private String user_type;
 
 }

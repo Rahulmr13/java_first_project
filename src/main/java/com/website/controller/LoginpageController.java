@@ -39,12 +39,16 @@ public class LoginpageController extends HttpServlet {
 			if(bean!=null)
 			{
 				session.setAttribute("bean", bean);
-				response.sendRedirect("home.jsp");
+				if(bean.getUser_type().equals("admin")) {
+					response.sendRedirect("admin.jsp");
+				}
+				else if(bean.getUser_type().equals("user")){
+					response.sendRedirect("home.jsp");
+				}
+				
 			}
-			
 			else {
-				session.setAttribute("failed","invalid credentials");
-				response.sendRedirect("login.jsp");
+				response.sendRedirect("login.jsp?msg=failed");
 			}
 			
 			
@@ -60,11 +64,10 @@ public class LoginpageController extends HttpServlet {
 			int status = dao.Registeruser(bean);
 			if(status>0)
 			{
-				response.sendRedirect("login.jsp");
+				response.sendRedirect("registration.jsp?msg=done");
 			}
 			else {
-				session.setAttribute("status","enter proper details");
-				response.sendRedirect("registartion.jsp");
+				response.sendRedirect("registration.jsp?msg=failed");
 			}
 			
 			

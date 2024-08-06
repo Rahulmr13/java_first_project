@@ -1,4 +1,3 @@
-
 <%@page import="java.beans.beancontext.BeanContext"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -16,7 +15,7 @@
   <meta charset="utf-8">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" rel="rel">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Admin page</title>
+  <title>Home Page</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,13 +38,7 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: QuickStart
-  * Template URL: https://bootstrapmade.com/quickstart-bootstrap-startup-website-template/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  
 </head>
 
 <body class="index-page">
@@ -60,29 +53,12 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#!" >DashBoard</a></li>
-          <li><a href="#!" class="active">Add items</a></li>
-          <li><a href="#!">****</a></li>
-          <li><a href="#!">****</a></li>
-          <li><a href="#!">****</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#!">****</a></li>
+          <li><a href="home.jsp" >Home</a></li>
+          <li><a href="viewproduct.jsp" class="active">Products gallery</a></li>
+          <li><a href="#!">Photo gallery</a></li>
+          <li><a href="#!">About Hotel</a></li>
+          <li><a href="#!">Address</a></li>
+          <li><a href="#!">Contact us</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -97,35 +73,8 @@
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section">
-      <div class="hero-bg">
-        <img src="assets/img/hero-bg-light.webp" alt="">
-      </div>
-      <div class="container text-center">
-        <form action="AdminController?action=additems" method="post">
-       <center><h1> Add product</h1></center> 
-       <% String validate=request.getParameter("valid");
-       if("success".equals(validate)){
-       %>
-       <p style="color:green;">item added successfully..!</p>
-       <%} %>
-         <input type="text" name="product_name" placeholder="product name" required/><br/><br/>
-         <input type="text" name="product_categeries" placeholder="product categories" required/><br/><br/>
-         <input type="text" name="product_price" placeholder="product price" required/><br/><br/>
-         <input type="submit" name="submit" />
-        
-        </form>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-   
-    
-    
-    
-    
   </main>
-
+ -->
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

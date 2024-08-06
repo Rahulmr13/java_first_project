@@ -1,6 +1,11 @@
+<%@page import="java.beans.beancontext.BeanContext"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.website.bean.LoginBean"%>
+<% 
+	if(session.getAttribute("bean")== null){
+	response.sendRedirect("login.jsp");
+}%>
     
 
 <!DOCTYPE html>
@@ -54,29 +59,12 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#!" class="active">Home</a></li>
-          <li><a href="#!">About</a></li>
-          <li><a href="#!">achievements</a></li>
-          <li><a href="#!">courses</a></li>
-          <li><a href="#!">suggesations</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#!">Contact</a></li>
+          <li><a href="home.jsp" class="active">Home</a></li>
+          <li><a href="viewproduct.jsp">product gallery</a></li>
+          <li><a href="#!">Photo gallery</a></li>
+          <li><a href="#!">About Hotel</a></li>
+          <li><a href="#!">Address</a></li>
+          <li><a href="#!">contact us</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -97,11 +85,11 @@
       </div>
       <div class="container text-center">
         <div class="d-flex flex-column justify-content-center align-items-center">
-          <h1 data-aos="fade-up">Welcome to <span>QuickStart</span></h1>
-          <p data-aos="fade-up" data-aos-delay="100">Quickly start your project now and set the stage for success<br></p>
+          <h1 data-aos="fade-up">Welcome to <span>Our online Mall....</span></h1>
+          <p data-aos="fade-up" data-aos-delay="100">We provide good quality and quantity food with low price.<br></p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="#about" class="btn-get-started">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            <a href="#about" class="btn-get-started">Food gallery</a>
+            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch food making Video</span></a>
           </div>
           <img src="assets/img/hero-services-img.webp" class="img-fluid hero-img" alt="" data-aos="zoom-out" data-aos-delay="300">
         </div>
