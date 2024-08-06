@@ -149,6 +149,7 @@ thead {
                         				<button class="btn btn-danger">Delete</button>
                         			</td>
                         	</c:if>
+                        	
                       </tr>
                     </c:forEach>
                       
