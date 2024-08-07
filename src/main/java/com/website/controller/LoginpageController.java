@@ -53,6 +53,21 @@ public class LoginpageController extends HttpServlet {
 			
 			
 		}
+		else if(action.equals("changepassword"))
+		{
+			LoginDAO dao= new LoginDAOImp();
+			int  id=Integer.parseInt(request.getParameter("id"));
+			String oldpassword=request.getParameter("oldpassword");
+			String newpassword=request.getParameter("newpassword");
+			int count=dao.changepassword(id,oldpassword,newpassword);
+			if (count > 0) {
+				response.sendRedirect("changepassword.jsp?done=updated");
+				
+			}
+			else {
+				response.sendRedirect("changepassword.jsp?done=notupdated");
+			}
+		}
 		else if(action.equals("register")) {
 			LoginBean bean = new LoginBean();
 			LoginDAO dao = new LoginDAOImp();

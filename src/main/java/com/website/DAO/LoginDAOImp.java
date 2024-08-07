@@ -1,5 +1,6 @@
 package com.website.DAO;
 
+import java.beans.beancontext.BeanContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +10,7 @@ import com.website.bean.LoginBean;
 
 public class LoginDAOImp implements LoginDAO {
 	private static final String LOGIN_USER_STRING = "select * from user where user_email=? and user_password=?";
-	private static final String CHANGE_PASSWORD_USER_STRING = "update user set user_password=? where user_id=? and user_email=?";
+	private static final String CHANGE_PASSWORD_USER_STRING = "update user set user_password=? where user_password=? and user_id=?";
 	private static final String REGISTER_USER_STRING = "insert into user(user_name,user_email,user_password,phone,address) values(?,?,?,?,?)";
 	Connection con=null;
 	PreparedStatement ps=null;
@@ -39,15 +40,14 @@ public class LoginDAOImp implements LoginDAO {
 		return null;
 	}
 
-	@Override
-	public int changepassword(String oldpassword, String newpassword, int userid) throws Exception {
+	public int changepassword(int id,String oldpassword,String newpassword) throws Exception {
 		// TODO Auto-generated method stub
 		int count=0;
 		try {
 			ps=con.prepareStatement(CHANGE_PASSWORD_USER_STRING);
-			ps.setString(1,oldpassword);
-			ps.setString(2,newpassword);
-			ps.setLong(3,userid);
+			ps.setString(1,newpassword);
+			ps.setString(2,oldpassword);
+			ps.setLong(3,id);
 			count=ps.executeUpdate();
 		}
 		catch(Exception e) {
@@ -66,5 +66,6 @@ public class LoginDAOImp implements LoginDAO {
 		return ps.executeUpdate();
 		
 	}
+	
 
 }

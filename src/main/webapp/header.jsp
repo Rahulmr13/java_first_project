@@ -49,11 +49,11 @@
           		<li><a href="#!">contact us</a></li>
         </c:if>
          <c:if test="${bean.user_type=='admin'}">
-          <li><a href="#!" >DashBoard</a></li>
+          <li><a href="admin.jsp" >DashBoard</a></li>
           <li><a href="#!" class="active"></a></li>
           <li class="dropdown"><a href="#"><span>items</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#" class="active">Add items</a></li>
+              <li><a href="admin.jsp" class="active">Add items</a></li>
               <li><a href="viewproduct.jsp">view product</a></li>
               <li><a href="viewregisteruser.jsp">Registered user</a></li>
             </ul>
@@ -62,7 +62,7 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
+	  <a class="btn-getstarted" href="changepassword.jsp">Change password</a>
       <a class="btn-getstarted" href="LoginpageController?action=logout">Logout</a>
       <%LoginBean bean=(LoginBean)session.getAttribute("bean"); %>
       <a class="btn-getstarted" href="#!">${bean.user_name}</a>
