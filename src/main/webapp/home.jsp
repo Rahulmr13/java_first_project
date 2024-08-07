@@ -2,6 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.website.bean.LoginBean"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+<%@include file="header.jsp" %>
 <% 
 	if(session.getAttribute("bean")== null){
 	response.sendRedirect("login.jsp");
@@ -48,33 +51,6 @@
 </head>
 
 <body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="home.jsp" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logo.png" alt="">
-        <h1 class="sitename">FoodCafe</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="home.jsp" class="active">Home</a></li>
-          <li><a href="viewproduct.jsp">product gallery</a></li>
-          <li><a href="#!">Photo gallery</a></li>
-          <li><a href="#!">About Hotel</a></li>
-          <li><a href="#!">Address</a></li>
-          <li><a href="#!">contact us</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="LoginpageController?action=logout">Logout</a>
-      <%LoginBean bean=(LoginBean)session.getAttribute("bean");%>
-      <a class="btn-getstarted" href="#!">${bean.user_name}</a>
-
-    </div>
-  </header>
 
   <main class="main">
 

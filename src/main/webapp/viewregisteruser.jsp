@@ -10,7 +10,13 @@
 	response.sendRedirect("login.jsp");
 }%>
     
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registerd user</title>
+</head>
+<body>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,8 +89,6 @@ thead {
 
 <body class="index-page">
 
-  
-
   <main class="main">
 
     <!-- Hero Section -->
@@ -100,31 +104,35 @@ thead {
                   <table class="table table-striped mb-0">
                     <thead id="tablehead">
                       <tr>
-                        <th scope="col">Product ID</th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Product Categories</th>
-                        <th scope="col">Product Price</th>
-                        <c:if test="${bean.user_type == 'admin'}">
+                      
+                        <th scope="col">User Id</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">User Email</th>
+                        <th scope="col">User Password</th>
+                        <th scope="col">Phone number</th>
+                        <th scope="col">Address</th>
                         <th scope="col">Options</th>
-                        </c:if>
+                       
                       </tr>
                     </thead>
                     <tbody>
                     <sql:query var="products" dataSource="jdbc/login">
-                    	select * from items
+                    	select * from user
                     </sql:query>
                     <c:forEach items="${products.rows}" var="product">
                     	<tr>
-                        	<td>${product.product_id}</td>
-                        	<td>${product.product_name}</td>
-                        	<td>${product.product_categeries}</td>
-                        	<td>${product.product_price}</td>
-                        	<c:if test="${bean.user_type == 'admin'}">
-                        			<td>
-                        				<button class="btn btn-primary">Edit</button>
-                        				<button class="btn btn-danger">Delete</button>
-                        			</td>
-                        	</c:if>
+                    	
+                        	<td>${product.user_id}</td>
+                        	<td>${product.user_name}</td>
+                        	<td>${product.user_email}</td>
+                        	<td>${product.user_password}</td>
+                        	<td>${product.phone}</td>
+                        	<td>${product.address}</td>
+                        	<td>
+                        	<button class="btn btn-primary">Edit</button>
+                        	<button class="btn btn-danger">Delete</button>
+                        	</td>
+                        	
                         	
                       </tr>
                     </c:forEach>
@@ -160,4 +168,6 @@ thead {
 
 </body>
 
+</html>
+</body>
 </html>
